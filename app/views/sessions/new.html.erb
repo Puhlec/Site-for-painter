@@ -1,0 +1,5 @@
+<%= form_with url: login_path, local: true do |f| %>
+  <%= f.text_field :name, placeholder: "name" %>
+  <%= f.password_field :password, placeholder: "password" %>
+  <%= f.submit "Login" %>
+<% end %>

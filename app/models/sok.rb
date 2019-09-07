@@ -1,0 +1,2 @@
+class Sok < ApplicationRecord
+end

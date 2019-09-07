@@ -1,0 +1,10 @@
+<div class="card text-white bg-dark">
+  <h5 class="card-header"> <%= comment.autor %> </h5>
+  <div class="card-body">
+    <p class="card-text">    <%= comment.body %></p>
+  </div>
+</div>
+<% if @current_user %>
+  <%= link_to 'Destroy comment', context_image_comment_path(@image.context, @image, comment), method: :delete %>
+<% end %>
+<hr style="border-color: #FFFFFF;">

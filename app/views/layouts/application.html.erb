@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>John</title>
+    <style>
+     div.right {
+       position: fixed;
+       top: 400px;
+       right: -15px;
+       hight: 1000px;
+     }     
+    </style>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div>
+      <% if @current_user %>
+        Logged in as <%= @current_user.name %>
+        <%= link_to "Log out", logout_path, method: 'delete' %>
+        <hr>
+      <% end %>
+    </div>
+      <div class="container">
+        <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #ad2299;">
+          <a class="navbar-brand" href="<%= root_path %>">Johan Ibragimovich</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="navbar-toggler-icon oi oi-menu"></i>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <% @contexts.each do |c| %>
+                <li class="nav-item active">
+                  <%= link_to c.name, {controller: 'images', context_id: c},{class: "nav-link active"} %>
+                  <% if @current_user %>
+                    <li class="nav-item active">
+                      <%= link_to "", edit_context_path(c), remote: true, class: "oi oi-pencil", data: {toggle: "tooltip"}, title: "Edit '#{c.name}')" %>
+                      <%= link_to "del", context_path(c), remote: true,
+                      method: :delete,
+                      data: {confirm: 'are  u sure' }%>
+                    </li>
+                  <% end %>
+              <% end %>
+              <% if @current_user %>
+                <li class="nav-item">
+                  <%= link_to "", new_context_path, remote: true, class: "oi oi-plus", data: {toggle: "tooltip"}, title: "add context" %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </nav>
+    </div>
+
+    <div class="p-4">
+      <div class="row">
+        <div class="col-sm-3 bg-dark text-white p-4">KEKEKE KEKEKE KEKEKE KEKEKE KEKEKE KEKEK EKEKEKE KEKEKE KEKEKE  </div>
+        <div class="col-sm-3 bg-primary text-white p-4">KEKEKE</div>
+        <div class="col-sm-3 bg-secondary text-white p-4">KEKEKE</div>
+        <div class="col-sm-3 bg-info text-white p-4">KEKEKE</div>
+      </div>
+    </div>
+    <%= link_to image_tag("inst.svg", style: "max-width: 50px", alt: "Jamshut"), "https://www.instagram.com/obukhova_evdokiya/", :target => "_blank" %>
+    <%= link_to image_tag("vk.svg", style: "max-width: 50px"), "https://vk.com/publiceo", target: :blank %>
+      <%= yield %>
+
+      <div id="modal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title"></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+            </div>
+          </div>
+        </div>
+      </div>
+  </body>
+</html>

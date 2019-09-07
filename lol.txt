@@ -1,0 +1,24 @@
+                   Prefix Verb   URI Pattern                                                                              Controller#Action
+            welcome_Index GET    /welcome/Index(.:format)                                                                 welcome#Index
+                     root GET    /                                                                                        contexts#index
+           context_images GET    /contexts/:context_id/images(.:format)                                                   images#index
+                          POST   /contexts/:context_id/images(.:format)                                                   images#create
+        new_context_image GET    /contexts/:context_id/images/new(.:format)                                               images#new
+       edit_context_image GET    /contexts/:context_id/images/:id/edit(.:format)                                          images#edit
+            context_image GET    /contexts/:context_id/images/:id(.:format)                                               images#show
+                          PATCH  /contexts/:context_id/images/:id(.:format)                                               images#update
+                          PUT    /contexts/:context_id/images/:id(.:format)                                               images#update
+                          DELETE /contexts/:context_id/images/:id(.:format)                                               images#destroy
+                 contexts GET    /contexts(.:format)                                                                      contexts#index
+                          POST   /contexts(.:format)                                                                      contexts#create
+              new_context GET    /contexts/new(.:format)                                                                  contexts#new
+             edit_context GET    /contexts/:id/edit(.:format)                                                             contexts#edit
+                  context GET    /contexts/:id(.:format)                                                                  contexts#show
+                          PATCH  /contexts/:id(.:format)                                                                  contexts#update
+                          PUT    /contexts/:id(.:format)                                                                  contexts#update
+                          DELETE /contexts/:id(.:format)                                                                  contexts#destroy
+       rails_service_blob GET    /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
+rails_blob_representation GET    /rails/active_storage/representations/:signed_blob_id/:variation_key/*filename(.:format) active_storage/representations#show
+       rails_disk_service GET    /rails/active_storage/disk/:encoded_key/*filename(.:format)                              active_storage/disk#show
+update_rails_disk_service PUT    /rails/active_storage/disk/:encoded_token(.:format)                                      active_storage/disk#update
+     rails_direct_uploads POST   /rails/active_storage/direct_uploads(.:format)                                           active_storage/direct_uploads#create

@@ -1,0 +1,13 @@
+<%= bootstrap_form_with model: [comment.image.context, comment.image, comment] do |form| %>
+  <p>
+    <br>
+    <%= form.text_field :autor %>
+  </p>
+  <p>
+    <br>
+    <%= form.text_area :body %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

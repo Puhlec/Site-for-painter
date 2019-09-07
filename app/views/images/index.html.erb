@@ -1,0 +1,21 @@
+<p> No homo they said... </p>
+<div class ="container">
+  <% @images.each do |i| %>
+    <figure class="figure">
+      <div>  <%= i.name %>    
+        <% if @current_user %>
+          <%= link_to "", context_image_path(i.context, i), method: :delete, class: "oi oi-trash", title: "delete image" %>
+          <%= link_to " ", edit_context_image_path(i.context, i), remote: true, class: "oi oi-pencil", data: {toggle: "tooltip"}, title: "Edit me senpai" %>
+        <% end %>
+      </div>
+      <%= link_to image_tag(i.picture, style: "height: 200px", class: "img-thumbnail"), context_image_path(i.context, i), remote: true %>
+      <span class="d-inline-block text-truncate" style="max-width: 300px;">
+      </span>
+    </figure>
+  <% end %>
+  <%#  sddssdsdsdsd%>
+</div>
+<% if @current_user %>
+  <%= link_to image_tag("milos.jpg"), new_context_image_path, remote: true, title: "create, me sempai" %>
+<% end %>
+

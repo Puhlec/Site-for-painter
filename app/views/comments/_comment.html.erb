@@ -1,0 +1,5 @@
+        <div class="panel-body"> <%= comment.autor %></div>
+        <div class="panel-footer"><%= comment.body %></div>
+          <% if @current_user %>
+            <%= link_to 'Destroy comment', context_image_comment_path(@image.context, @image, comment), method: :delete %>
+          <% end %>

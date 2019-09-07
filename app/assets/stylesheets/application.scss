@@ -1,0 +1,32 @@
+$theme-colors: () !default;
+$theme-colors: map-merge(
+  (
+    "secondary":  #FFB0C0
+  ),
+  $theme-colors
+);
+@import "bootstrap";
+@import "font/css/open-iconic-bootstrap.css";
+body {
+  background: #FFCCFF;
+}
+
+/* Image modal */
+.modal.image .modal-body img {
+  max-width: 100%;
+}
+.modal.image .modal-dialog {
+  max-width: 90%;
+}
+
+.modal.image .modal-body, .modal.image .modal-header, .modal.image .modal-content {
+  background-color: rgba(0,0,0,0.4);
+}
+.modal.image .modal-header {
+  border-bottom: none;
+  color: #FFFFFF;
+}
+.modal.image .modal-body {
+  color: #FFFFFF;
+}
+

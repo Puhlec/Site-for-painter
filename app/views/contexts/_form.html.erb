@@ -1,0 +1,18 @@
+<%= bootstrap_form_with model: context, local: true do |f|  %>
+  <% if  @context.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@context.errors.count, "error") %> prohibited
+        this context from being saved:
+      </h2>
+      <ul>
+        <% @context.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.text_field :name, skip_label: true, placholder: "Conext's Name xD" %>
+  <%= f.submit class: "btn btn-succes" %>
+<% end %>
+<p> lel </p>
